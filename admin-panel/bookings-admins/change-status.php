@@ -19,11 +19,11 @@ if (isset($_GET["id"])) {
         ":status" => $status
       ]);
 
-      header("location: " . ADMINURL . "/orders-admins/show-bookings.php");
+      header("location: " . ADMINURL . "/bookings-admins/show-bookings.php");
     }
   }
 } else {
-  header("location: " . ADMINURL . "/orders-admins/show-bookings.php");
+  header("location: " . ADMINURL . "/bookings-admins/show-bookings.php");
 }
 ?>
 <div class="container-fluid">

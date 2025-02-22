@@ -1,5 +1,4 @@
 <?php include("../includes/header.php") ?>
-<?php include("../config/config.php") ?>
 <?php
 
 //dont allow user to go to checkout if there is no products inside
@@ -18,13 +17,13 @@ if (!isset($_SERVER["HTTP_REFERER"])) {
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">Pay with PayPal</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo APPURL; ?>/index.html">Home</a></span> <span>Pay with PayPal</span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo APPURL; ?>/index.php">Home</a></span> <span>Pay with PayPal</span></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="container my-4">
+<div class="container my-5">
     <!-- Replace "test" with your own sandbox Business account app client ID -->
     <script src="https://www.paypal.com/sdk/js?client-id=ARr2txEIDtod5cUcZ_rhCckntYHM5Oiu1tecOKvDoev_gfCSIvgdv3jaK3pVVzl1dzDwQdxgmkQbkrcR&currency=USD"></script>
     <!-- Set up a container element for the button -->

@@ -29,5 +29,5 @@ try {
 //helper function 
 function numFormat($num, $num2 = null)
 {
-  return $num2 ? number_format((float)$num->price * $num2->quantity, 2, '.', '') : number_format((float)$num->price, 2, '.', '') . "€";
+  return $num2 ? number_format((float)$num->price * $num2->quantity, 2, '.', '') . "€" : number_format((float)$num->price, 2, '.', '') . "€";
 }

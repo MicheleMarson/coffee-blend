@@ -1,5 +1,4 @@
 <?php include("../includes/header.php") ?>
-<?php include("../config/config.php") ?>
 <?php
 if (!isset($_SESSION["id"])) {
   header("location: " . APPURL . "");
@@ -18,7 +17,7 @@ $allOrders = $orders->fetchAll(PDO::FETCH_OBJ);
 
         <div class="col-md-7 col-sm-12 text-center ftco-animate">
           <h1 class="mt-5 bread">Your Orders</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo APPURL; ?>/index.html">Home</a></span> <span>Your Orders</span></p>
+          <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo APPURL; ?>/index.php">Home</a></span> <span>Your Orders</span></p>
         </div>
       </div>
     </div>

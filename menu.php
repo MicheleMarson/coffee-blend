@@ -1,13 +1,11 @@
 <?php include("includes/header.php") ?>
-<?php include("config/config.php") ?>
 <?php
-
-$desserts = $conn->query("SELECT * FROM products WHERE type='dessert'");
+$desserts = $conn->query("SELECT * FROM products WHERE type='dessert' LIMIT 6");
 $desserts->execute();
 
 $allDesserts = $desserts->fetchAll(PDO::FETCH_OBJ);
 
-$drinks = $conn->query("SELECT * FROM products WHERE type='drink'");
+$drinks = $conn->query("SELECT * FROM products WHERE type='drink' LIMIT 6");
 $drinks->execute();
 
 $allDrinks = $drinks->fetchAll(PDO::FETCH_OBJ);
@@ -22,7 +20,7 @@ $allDrinks = $drinks->fetchAll(PDO::FETCH_OBJ);
 
 				<div class="col-md-7 col-sm-12 text-center ftco-animate">
 					<h1 class="mb-3 mt-5 bread">Our Menu</h1>
-					<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Menu</span></p>
+					<p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home</a></span> <span>Menu</span></p>
 				</div>
 
 			</div>

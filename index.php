@@ -1,17 +1,9 @@
 <?php include("includes/header.php") ?>
-<?php include("config/config.php") ?>
 <?php
-
 $products = $conn->query("SELECT * FROM products");
 $products->execute();
 
 $allProducts = $products->fetchAll(PDO::FETCH_OBJ);
-
-$reviews = $conn->query("SELECT * FROM reviews ORDER BY created_at DESC LIMIT 5");
-$reviews->execute();
-
-$allReviews = $reviews->fetchAll(PDO::FETCH_OBJ);
-
 ?>
 
 <section class="home-slider owl-carousel">
@@ -24,7 +16,7 @@ $allReviews = $reviews->fetchAll(PDO::FETCH_OBJ);
 					<span class="subheading">Welcome</span>
 					<h1 class="mb-4">The Best Coffee Testing Experience</h1>
 					<p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-					<p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Order Now</a> <a href="#" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
+					<p><a href="#order" class="btn btn-primary p-3 px-xl-4 py-xl-3">Order Now</a> <a href="menu.php" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
 				</div>
 
 			</div>
@@ -278,7 +270,7 @@ $allReviews = $reviews->fetchAll(PDO::FETCH_OBJ);
 </section>
 
 <section class="ftco-section">
-	<div class="container">
+	<div id="order" class="container">
 		<div class="row justify-content-center mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate text-center">
 				<span class="subheading">Discover</span>
@@ -339,38 +331,6 @@ $allReviews = $reviews->fetchAll(PDO::FETCH_OBJ);
 	</div>
 </section>
 
-
-
-<section class="ftco-section img" id="ftco-testimony" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-	<div class="overlay"></div>
-	<div class="container">
-		<div class="row justify-content-center mb-5">
-			<div class="col-md-7 heading-section text-center ftco-animate">
-				<span class="subheading">Testimony</span>
-				<h2 class="mb-4">Customers Says</h2>
-				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-			</div>
-		</div>
-	</div>
-	<div class="container-wrap">
-		<div class="row d-flex no-gutters">
-			<?php foreach ($allReviews as $review) : ?>
-				<div class="col-lg align-self-sm-end ftco-animate">
-					<div class="testimony">
-						<blockquote>
-							<p>&ldquo;<?php echo $review->review; ?>&rdquo;</p>
-						</blockquote>
-						<div class="author d-flex mt-4">
-							<div class="image mr-3 align-self-center">
-								<img src="images/person_1.jpg" alt="">
-							</div>
-							<div class="name align-self-center"><?php echo $review->username; ?></div>
-						</div>
-					</div>
-				</div>
-			<?php endforeach ?>
-		</div>
-	</div>
-</section>
+<?php include("includes/reviews.php") ?>
 
 <?php include("includes/footer.php") ?>

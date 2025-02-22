@@ -1,5 +1,4 @@
 <?php include("../includes/header.php") ?>
-<?php include("../config/config.php") ?>
 
 <?php
 if (isset($_POST["submit"])) {

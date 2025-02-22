@@ -1,5 +1,4 @@
 <?php include("includes/header.php") ?>
-<?php include("config/config.php") ?>
 
 <section class="home-slider owl-carousel">
   <div class="slider-item" style="background-image: url(<?php echo APPURL; ?>/images/bg_3.jpg);" data-stellar-background-ratio="0.5">

@@ -1,11 +1,9 @@
 <?php include("../includes/header.php") ?>
-<?php include("../config/config.php") ?>
 <?php
 //dont allow user to go to checkout if there is no products inside
 if (!isset($_SERVER["HTTP_REFERER"])) {
   //redirect them to desired location
   header("location: http://localhost/coffee-blend/index.php");
-  exit;
 }
 
 //only access this page if user loged in
@@ -28,10 +26,9 @@ if (isset($_POST["submit"])) {
       ":userId" => $_SESSION["id"],
     ]);
 
-    header("location: " . APPURL . " ");
+    header("location: http://localhost/coffee-blend/index.php");
   }
 }
-
 ?>
 
 <section class="home-slider owl-carousel">

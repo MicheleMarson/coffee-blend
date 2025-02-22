@@ -1,5 +1,4 @@
 <?php include("../includes/header.php") ?>
-<?php include("../config/config.php") ?>
 <?php
 //only access this page if user not loged in
 if (isset($_SESSION["username"])) {

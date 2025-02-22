@@ -1,12 +1,20 @@
 <?php
+ob_start(); // Start output buffering
+session_start(); // Start session
+
+include($_SERVER['DOCUMENT_ROOT'] . "/coffee-blend/config/config.php");
 
 define("APPURL", "http://localhost/coffee-blend");
 
-session_start();
-
-
-
+// Function to mark the active page in the navbar
+function activePage($page)
+{
+  $current_page = basename($_SERVER['REQUEST_URI']);
+  return ($current_page == $page) ? 'active' : '';
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +50,18 @@ session_start();
     .form-control option {
       color: black;
     }
+
+    .nav-item.active .icon-shopping_cart::before,
+    .nav-item:hover .icon-shopping_cart {
+      color: #c49b63 !important;
+    }
+
+    #paypal-button-container {
+      width: fit-content;
+      display: flex;
+      margin: auto;
+      justify-content: center;
+    }
   </style>
 </head>
 
@@ -54,14 +74,14 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="<?php echo APPURL; ?>/index.php" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="<?php echo APPURL; ?>/menu.php" class="nav-link">Menu</a></li>
-          <li class="nav-item"><a href="<?php echo APPURL; ?>/services.php" class="nav-link">Services</a></li>
-          <li class="nav-item"><a href="<?php echo APPURL; ?>/about.php" class="nav-link">About</a></li>
+          <li class="nav-item <?= activePage('index.php'); ?>"><a href="<?php echo APPURL; ?>/index.php" class="nav-link">Home</a></li>
+          <li class="nav-item <?= activePage('menu.php'); ?>"><a href="<?php echo APPURL; ?>/menu.php" class="nav-link">Menu</a></li>
+          <li class="nav-item <?= activePage('services.php'); ?>"><a href="<?php echo APPURL; ?>/services.php" class="nav-link">Services</a></li>
+          <li class="nav-item <?= activePage('about.php'); ?>"><a href="<?php echo APPURL; ?>/about.php" class="nav-link">About</a></li>
 
-          <li class="nav-item"><a href="<?php echo APPURL; ?>/contact.php" class="nav-link">Contact</a></li>
-          <?php if (isset($_SESSION["adminName"])) : ?>
-            <li class="nav-item cart"><a href="<?php echo APPURL; ?>/products/cart.php" class="nav-link"><span class="icon icon-shopping_cart"></span></a>
+          <li class="nav-item <?= activePage('contact.php'); ?>"><a href="<?php echo APPURL; ?>/contact.php" class="nav-link">Contact</a></li>
+          <?php if (isset($_SESSION["username"])) : ?>
+            <li class="nav-item cart <?= activePage('cart.php'); ?>"><a href="<?php echo APPURL; ?>/products/cart.php" class="nav-link"><span class="icon icon-shopping_cart"></span></a>
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php echo $_SESSION["username"]; ?>
@@ -76,8 +96,8 @@ session_start();
               </ul>
             </li>
           <?php else : ?>
-            <li class="nav-item"><a href="<?php echo APPURL; ?>/auth/login.php" class="nav-link">login</a></li>
-            <li class="nav-item"><a href="<?php echo APPURL; ?>/auth/register.php" class="nav-link">register</a></li>
+            <li class="nav-item <?= activePage('auth/login.php'); ?>"><a href="<?php echo APPURL; ?>/auth/login.php" class="nav-link">login</a></li>
+            <li class="nav-item <?= activePage('auth/register.php'); ?>"><a href="<?php echo APPURL; ?>/auth/register.php" class="nav-link">register</a></li>
           <?php endif ?>
         </ul>
       </div>

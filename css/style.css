@@ -7455,7 +7455,7 @@ h1, h2, h3, h4, h5,
     border: none; }
     .ftco-navbar-light.scrolled .nav-item > .nav-link {
       color: #fff !important; }
-    .ftco-navbar-light.scrolled .nav-item.active > a {
+    .ftco-navbar-light.scrolled .nav-item.active > article{
       color: #c49b63 !important; }
     .ftco-navbar-light.scrolled .nav-item.cta > a {
       color: #fff !important;

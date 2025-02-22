@@ -1,5 +1,4 @@
 <?php include("../includes/header.php") ?>
-<?php include("../config/config.php") ?>
 <?php
 //dont allow user to go to checkout if there is no products inside
 if (!isset($_SERVER["HTTP_REFERER"])) {

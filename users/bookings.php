@@ -1,5 +1,4 @@
 <?php include("../includes/header.php") ?>
-<?php include("../config/config.php") ?>
 <?php
 if (!isset($_SESSION["id"])) {
   header("location: " . APPURL . "");
@@ -18,7 +17,7 @@ $allBookings = $bookings->fetchAll(PDO::FETCH_OBJ);
 
         <div class="col-md-7 col-sm-12 text-center ftco-animate">
           <h1 class="mb-3 mt-5 bread">Bookings</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo APPURL; ?>/index.html">Home</a></span> <span>Bookings</span></p>
+          <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo APPURL; ?>/index.php">Home</a></span> <span>Bookings</span></p>
         </div>
       </div>
     </div>
@@ -35,8 +34,7 @@ $allBookings = $bookings->fetchAll(PDO::FETCH_OBJ);
               <thead class="thead-primary">
                 <tr class="text-center">
                   <!-- <th>&nbsp;</th> -->
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Full Name</th>
                   <th>Date</th>
                   <th>Time</th>
                   <th>Phone</th>
@@ -49,12 +47,11 @@ $allBookings = $bookings->fetchAll(PDO::FETCH_OBJ);
                 <?php foreach ($allBookings as $booking) : ?>
                   <tr class="text-center">
                     <!-- <td class="product-remove"><a href="delete-product.php?id=<?php echo $product->id; ?>"><span class="icon-close"></span></a></td> -->
-                    <td><?php echo $booking->firstname; ?></td>
-                    <td><?php echo $booking->lastname; ?></td>
+                    <td><?php echo $booking->firstname . " " . $booking->lastname; ?></td>
                     <td><?php echo $booking->date; ?></td>
                     <td><?php echo $booking->time; ?></td>
                     <td><?php echo $booking->phone; ?></td>
-                    <td><?php echo $booking->message; ?></td>
+                    <td width="200px"><?php echo $booking->message; ?></td>
                     <td><?php echo $booking->status; ?></td>
                     <?php if ($booking->status == "Delivered") : ?>
                       <td class="product-remove"><a href="<?php echo APPURL; ?>/reviews/write-review.php">Write review</a></td>
