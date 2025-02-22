@@ -9,20 +9,11 @@ $orders->execute();
 $allOrders = $orders->fetchAll(PDO::FETCH_OBJ);
 ?>
 
-<section class="home-slider owl-carousel">
-  <div class="slider-item" style="background-image: url(<?php echo APPURL; ?>/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row slider-text justify-content-center align-items-center">
+<?php
+$heroVar = (object)["title" => "Your Orders"];
+include("../includes/hero.php");
+?>
 
-        <div class="col-md-7 col-sm-12 text-center ftco-animate">
-          <h1 class="mt-5 bread">Your Orders</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo APPURL; ?>/index.php">Home</a></span> <span>Your Orders</span></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="ftco-section ftco-cart">
   <div class="container">
     <?php if (count($allOrders)) : ?>
